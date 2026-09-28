@@ -1717,7 +1717,7 @@ function setResearch(list){
 const STATIC_SITE = (typeof claude === 'undefined') || !claude || !claude.use;
 if(STATIC_SITE){
   document.documentElement.classList.add('static-site');
-  fetch('data/research.json').then(r=>r.json()).then(list=>{
+  fetch('research.json').then(r=>r.json()).then(list=>{
     list.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));
     setResearch(list);
   }).catch(e=>console.warn('research load failed', e));
